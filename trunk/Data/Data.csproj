@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7FD8F1DB-25C0-4693-9726-63D176D996AC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HTB.DevFx.Data</RootNamespace>
+    <AssemblyName>HTB.DevFx.Data</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\Support\devfx.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Support\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="ArrayResultHandler.cs">
+      <DependentUpon>ResultHandlerBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommandTextParser.cs">
+      <DependentUpon>ICommandTextParser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\DataCacheSetting.cs">
+      <DependentUpon>IDataCacheSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\IDataCacheSetting.cs" />
+    <Compile Include="Config\IDataStorageContextSetting.cs">
+      <DependentUpon>IDataServiceSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\IDynamicTextSetting.cs">
+      <DependentUpon>IStatementTextSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\IParameterSetting.cs">
+      <DependentUpon>IStatementSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\IPropertyMapSetting.cs">
+      <DependentUpon>IObjectMapSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\IObjectMapSetting.cs" />
+    <Compile Include="Config\IResultHandlerContextSetting.cs">
+      <DependentUpon>IResultHandlerFactoryContextSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\IResultHandlerFactoryContextSetting.cs">
+      <DependentUpon>IDataServiceSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\IResultHandlerSetting.cs">
+      <DependentUpon>IResultHandlerContextSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\IResultModuleSetting.cs">
+      <DependentUpon>IResultHandlerFactoryContextSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\IStatementSetting.cs">
+      <DependentUpon>IStatementContextSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\IStatementTextSetting.cs">
+      <DependentUpon>IStatementSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataExecutor.cs">
+      <DependentUpon>ISessionDataService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataExecutorBase.cs">
+      <DependentUpon>ISessionDataService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataOperationBase.cs">
+      <DependentUpon>IDataOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataOperationBase.Events.cs">
+      <DependentUpon>DataOperationBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataOperationBase.IDataOperation.cs">
+      <DependentUpon>DataOperationBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataOperationContext.cs">
+      <DependentUpon>IDataOperationContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataReaderResultHandler.cs">
+      <DependentUpon>ResultHandlerBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataService.cs">
+      <DependentUpon>DataServiceBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataServiceBase.cs">
+      <DependentUpon>IDataService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataServicBase.IDataService.cs">
+      <DependentUpon>DataServiceBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSessionBase.cs">
+      <DependentUpon>IDataSession.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSessionBase.IDataSession.cs">
+      <DependentUpon>DataSessionBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetResultHandler.cs">
+      <DependentUpon>ResultHandlerBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataStorageBase.cs">
+      <DependentUpon>IDataStorage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataTableResultHandler.cs">
+      <DependentUpon>ResultHandlerBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DbCommandBuilder.cs">
+      <DependentUpon>IDbCommandBuilder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DbCommandWrap.cs">
+      <DependentUpon>IDbCommandWrap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DbExecuteContext.cs">
+      <DependentUpon>IDbExecuteContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DbResultContext.cs">
+      <DependentUpon>IDbResultContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultDataStorage.cs">
+      <DependentUpon>DataStorageBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicCommandTextParser.cs">
+      <DependentUpon>CommandTextParser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CacheAction.cs" />
+    <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Entities\Extensions.cs" />
+    <Compile Include="DataExtensions.cs" />
+    <Compile Include="ICommandTextParser.cs" />
+    <Compile Include="IDataExecuteContext.cs">
+      <DependentUpon>ISessionDataService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IDataOperation.cs" />
+    <Compile Include="IDataOperationContext.cs" />
+    <Compile Include="IDataStorage.cs" />
+    <Compile Include="IDataService.cs" />
+    <Compile Include="IDataSession.cs" />
+    <Compile Include="IDbCommandBuilder.cs" />
+    <Compile Include="IDbCommandWrap.cs" />
+    <Compile Include="IDbExecuteContext.cs" />
+    <Compile Include="IDbResultContext.cs" />
+    <Compile Include="IObjectMapper.cs" />
+    <Compile Include="IObjectWrap.cs" />
+    <Compile Include="ISessionDataService.cs" />
+    <Compile Include="ResultCacheModule.cs">
+      <DependentUpon>ResultModuleBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IResultHandlerFactory.cs" />
+    <Compile Include="IResultModule.cs">
+      <DependentUpon>IResultHandlerFactory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NoneResultHandler.cs">
+      <DependentUpon>ResultHandlerBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectMapper.cs">
+      <DependentUpon>ObjectMapperBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectMapperBase.cs">
+      <DependentUpon>IObjectMapper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OdbcDataStorage.cs">
+      <DependentUpon>DataStorageBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OleDbDataStorage.cs">
+      <DependentUpon>DataStorageBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaginateResultHandler.cs">
+      <DependentUpon>ResultHandlerBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Config\htb.devfx.data.config" />
+    <Compile Include="ObjectWrap.cs">
+      <DependentUpon>IObjectWrap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\IStatementContextSetting.cs">
+      <DependentUpon>IDataServiceSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\DataServiceSetting.cs">
+      <DependentUpon>IDataServiceSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\IDataStorageSetting.cs">
+      <DependentUpon>IDataStorageContextSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\IDataServiceSetting.cs" />
+    <Compile Include="ResultHandlerBase.cs">
+      <DependentUpon>IResultHandler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResultHandlerFactory.cs">
+      <DependentUpon>IResultHandlerFactory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResultHandlerSelector.cs">
+      <DependentUpon>ResultHandlerBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResultModuleBase.cs">
+      <DependentUpon>IResultModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScalarResultHandler.cs">
+      <DependentUpon>ResultHandlerBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SingleResultHandler.cs">
+      <DependentUpon>ResultHandlerBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IResultHandler.cs" />
+    <Compile Include="SqlServerDataStorage.cs">
+      <DependentUpon>DataStorageBase.cs</DependentUpon>
+    </Compile>
+    <None Include="Data.nuspec.template" />
+    <None Include="Properties\AssemblyInfo.Template.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseFx\BaseFx.csproj">
+      <Project>{CA9189D9-E448-4FAE-9F14-6DF1525DDA0E}</Project>
+      <Name>BaseFx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFx\DevFx.csproj">
+      <Project>{0CE1A4D2-24C3-4EC5-9A4E-0074A9CA3423}</Project>
+      <Name>DevFx</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Support\license.txt">
+      <Link>license.txt</Link>
+    </None>
+    <None Include="..\Support\readme.txt">
+      <Link>readme.txt</Link>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>@copy /y "$(ProjectDir)Properties\AssemblyInfo.Template.cs" "$(ProjectDir)Properties\AssemblyInfo.cs"
+SubWCRev.exe $(ProjectDir) "$(ProjectDir)Properties\AssemblyInfo.Template.cs" "$(ProjectDir)Properties\AssemblyInfo.cs" -f
+IF %25ERRORLEVEL%25 NEQ 0 EXIT /B 0
+SubWCRev.exe $(ProjectDir) "$(ProjectDir)$(ProjectName).nuspec.template" "$(ProjectDir)$(ProjectName).nuspec" -f
+IF %25ERRORLEVEL%25 NEQ 0 EXIT /B 0</PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
