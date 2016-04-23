@@ -243,7 +243,6 @@
     <Compile Include="SqlServerDataStorage.cs">
       <DependentUpon>DataStorageBase.cs</DependentUpon>
     </Compile>
-    <None Include="Data.nuspec.template" />
     <None Include="Properties\AssemblyInfo.Template.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -273,10 +272,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PreBuildEvent>@copy /y "$(ProjectDir)Properties\AssemblyInfo.Template.cs" "$(ProjectDir)Properties\AssemblyInfo.cs"
-SubWCRev.exe $(ProjectDir) "$(ProjectDir)Properties\AssemblyInfo.Template.cs" "$(ProjectDir)Properties\AssemblyInfo.cs" -f
-IF %25ERRORLEVEL%25 NEQ 0 EXIT /B 0
-SubWCRev.exe $(ProjectDir) "$(ProjectDir)$(ProjectName).nuspec.template" "$(ProjectDir)$(ProjectName).nuspec" -f
+    <PreBuildEvent>@call "$(ProjectDir)..\gitbuild.bat" $(ProjectDir)..\ $(ProjectDir)Properties\
 IF %25ERRORLEVEL%25 NEQ 0 EXIT /B 0</PreBuildEvent>
     <PostBuildEvent>
     </PostBuildEvent>
