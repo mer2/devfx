@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>DevFx.Lite</id>
+    <version>$version$</version>
+    <title>DevFx Lite</title>
+    <authors>R2</authors>
+    <owners>HTB</owners>
+    <description>DevFx Lite, HTB Develop Framework For .NET</description>
+    <projectUrl>https://github.com/mer2/DevFx.git</projectUrl>
+    <licenseUrl>http://www.gnu.org/licenses/lgpl-3.0.txt</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+  </metadata>
+</package>
