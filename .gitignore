@@ -1,0 +1,12 @@
+AssemblyInfo.cs
+*.nuspec
+bin/
+obj/
+*.csproj.user
+*.ReSharper.user
+*.ReSharper
+*.suo
+_ReSharper.*
+.*
+packages/
+/trunk/*.DotSettings
