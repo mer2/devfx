@@ -73,7 +73,7 @@ namespace HTB.DevFx
 
 		#region Setup ObjectService
 
-		private volatile static IObjectService currentInstance;
+		private static volatile IObjectService currentInstance;
 		private static bool currentInitializing;
 		public static IObjectService Current {
 			get {

@@ -32,7 +32,7 @@ namespace HTB.DevFx.Core
 		/// <param name="resultData">传递的其他信息集合（上下文）</param>
 		/// <returns><see cref="IAOPResult"/>实例</returns>
 		public static IAOPResult Create(int resultNo, string resultDescription, object attachObject, IAOPResult innerAOPResult, IDictionary resultData) {
-			return new AOPResult(resultNo, resultDescription, attachObject, ToAOPResult(innerAOPResult, null)) { resultData = resultData };
+			return new AOPResult(resultNo, resultDescription, attachObject, ToAOPResult(innerAOPResult, null)) { ResultData = resultData };
 		}
 
 		/// <summary>
@@ -59,7 +59,7 @@ namespace HTB.DevFx.Core
 		/// <param name="resultData">传递的其他信息集合（上下文）</param>
 		/// <returns><see cref="IAOPResult{T}"/>实例</returns>
 		public static IAOPResult<T> Create<T>(int resultNo, string resultDescription, T attachObject, IAOPResult innerAOPResult, IDictionary resultData) {
-			return new AOPResult<T>(resultNo, resultDescription, attachObject, ToAOPResult(innerAOPResult, null)) { resultData = resultData };
+			return new AOPResult<T>(resultNo, resultDescription, attachObject, ToAOPResult(innerAOPResult, null)) { ResultData = resultData };
 		}
 
 		/// <summary>

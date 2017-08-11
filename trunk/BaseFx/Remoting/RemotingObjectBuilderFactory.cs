@@ -1,5 +1,6 @@
 ﻿/* Copyright(c) 2005-2011 R2@DevFx.NET, License(LGPL) */
 
+using System;
 using System.Collections.Generic;
 using HTB.DevFx.Core;
 using HTB.DevFx.Esb;
@@ -58,10 +59,17 @@ namespace HTB.DevFx.Remoting
 			object instance = null;
 			if(builder == null) {
 				if(!string.IsNullOrEmpty(uri)) {
-					var index = uri.LastIndexOf('.');
+					var index = uri.LastIndexOf('.');//按后缀查找对象创建器
 					if(index > 0) {
 						var handlerName = uri.Substring(index).ToLower();
 						this.builders.TryGetValue(handlerName, out builder);
+					}
+					if (builder == null) {//按Scheme查找对象创建器
+						index = uri.IndexOf("://", StringComparison.Ordinal);
+						if (index > 0) {
+							var handlerName = uri.Substring(0, index + 3).ToLower();
+							this.builders.TryGetValue(handlerName, out builder);
+						}
 					}
 				}
 			}

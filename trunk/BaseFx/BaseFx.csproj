@@ -102,6 +102,9 @@
     <Compile Include="Core\AOPResult.cs">
       <DependentUpon>IAOPResult.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\AOPResultBase.cs">
+      <DependentUpon>IAOPResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\EventArgsBase.cs" />
     <Compile Include="Core\IAOPResult.cs" />
     <Compile Include="Core\IObjectContext.cs" />
@@ -273,6 +276,7 @@
     <Compile Include="Remoting\RemotingException.cs" />
     <Compile Include="Remoting\RemotingHelper.cs" />
     <EmbeddedResource Include="Esb\Config\htb.devfx.servicelocator.config" />
+    <None Include="BaseFx.nuspec.template" />
     <EmbeddedResource Include="Remoting\Config\htb.devfx.remoting.config" />
     <None Include="Utils\ObjectContext.cs" />
     <None Include="Properties\AssemblyInfo.Template.cs" />
@@ -300,7 +304,10 @@
   </Target>
   -->
   <PropertyGroup>
-    <PreBuildEvent>@call "$(ProjectDir)..\gitbuild.bat" $(ProjectDir)..\ $(ProjectDir)Properties\
+    <PreBuildEvent>@copy /y "$(ProjectDir)Properties\AssemblyInfo.Template.cs" "$(ProjectDir)Properties\AssemblyInfo.cs"
+SubWCRev.exe $(ProjectDir) "$(ProjectDir)Properties\AssemblyInfo.Template.cs" "$(ProjectDir)Properties\AssemblyInfo.cs" -f
+IF %25ERRORLEVEL%25 NEQ 0 EXIT /B 0
+SubWCRev.exe $(ProjectDir) "$(ProjectDir)$(ProjectName).nuspec.template" "$(ProjectDir)$(ProjectName).nuspec" -f
 IF %25ERRORLEVEL%25 NEQ 0 EXIT /B 0</PreBuildEvent>
     <PostBuildEvent>
     </PostBuildEvent>

@@ -185,7 +185,7 @@ namespace HTB.DevFx.Utils
 		}
 
 		/// <summary>
-		/// 获取当前请求的域名基地址，包含http://
+		/// 获取当前请求的域名基地址（如果有反向代理，则按反向代理获取），包含http://
 		/// </summary>
 		/// <param name="ctx"><see cref="HttpContext"/></param>
 		/// <param name="url">指定的URL</param>
@@ -205,7 +205,12 @@ namespace HTB.DevFx.Utils
 			if(uri.IsLoopback) {//获取真正的访问地址
 				url = uri.GetLeftPart(UriPartial.Scheme) + ctx.Request.Headers["HOST"];
 			} else {
-				url = uri.GetLeftPart(UriPartial.Authority);
+				var host = ctx.Request.Headers["X-Real-Host"];
+				if (!string.IsNullOrEmpty(host)) {
+					url = uri.GetLeftPart(UriPartial.Scheme) + host;
+				} else {
+					url = uri.GetLeftPart(UriPartial.Authority);
+				}
 			}
 			if(url.EndsWith("/")) {
 				url = url.Remove(url.Length - 1, 1);

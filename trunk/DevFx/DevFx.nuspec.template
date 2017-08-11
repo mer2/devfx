@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+	<metadata>
+		<id>DevFx</id>
+		<version>1.0.$WCREV$.0</version>
+		<title>DevFx</title>
+		<authors>R2</authors>
+		<description>DevFx, HTB Develop Framework For .NET, IoC, Data Access....</description>
+		<projectUrl>http://devfx.codeplex.com/</projectUrl>
+		<licenseUrl>http://www.gnu.org/licenses/lgpl-3.0.txt</licenseUrl>
+		<dependencies>
+			<dependency id="DevFx.Lite" version="1.0.99103" />
+		</dependencies>
+	</metadata>
+</package>

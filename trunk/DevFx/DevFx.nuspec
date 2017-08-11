@@ -2,13 +2,12 @@
 <package>
 	<metadata>
 		<id>DevFx</id>
-		<version>$version$</version>
+		<version>1.0.112636.0</version>
 		<title>DevFx</title>
 		<authors>R2</authors>
 		<description>DevFx, HTB Develop Framework For .NET, IoC, Data Access....</description>
-		<projectUrl>https://github.com/mer2/DevFx.git</projectUrl>
+		<projectUrl>http://devfx.codeplex.com/</projectUrl>
 		<licenseUrl>http://www.gnu.org/licenses/lgpl-3.0.txt</licenseUrl>
-		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<dependencies>
 			<dependency id="DevFx.Lite" version="1.0.99103" />
 		</dependencies>

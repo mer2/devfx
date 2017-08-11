@@ -90,6 +90,7 @@
     </Content>
     <None Include="Properties\AssemblyInfo.Template.cs" />
     <EmbeddedResource Include="Services\Config\htb.devfx.services.config" />
+    <None Include="Extensions.nuspec.template" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaseFx\BaseFx.csproj">
@@ -117,7 +118,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>@call "$(ProjectDir)..\gitbuild.bat" $(ProjectDir)..\ $(ProjectDir)Properties\
+    <PreBuildEvent>@copy /y "$(ProjectDir)Properties\AssemblyInfo.Template.cs" "$(ProjectDir)Properties\AssemblyInfo.cs"
+SubWCRev.exe $(ProjectDir) "$(ProjectDir)Properties\AssemblyInfo.Template.cs" "$(ProjectDir)Properties\AssemblyInfo.cs" -f
+IF %25ERRORLEVEL%25 NEQ 0 EXIT /B 0
+SubWCRev.exe $(ProjectDir) "$(ProjectDir)$(ProjectName).nuspec.template" "$(ProjectDir)$(ProjectName).nuspec" -f
 IF %25ERRORLEVEL%25 NEQ 0 EXIT /B 0</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>

@@ -56,7 +56,13 @@ namespace HTB.DevFx.Core
 
 		T[] GetObjects<T>(IDictionary items);
 		object[] GetObjects(Type type, IDictionary items);
-	
+
+		#endregion
+
+		#region Extension
+
+		IObjectNamespace GetObjectNamespace(string spaceName);
+
 		#endregion
 	}
 }

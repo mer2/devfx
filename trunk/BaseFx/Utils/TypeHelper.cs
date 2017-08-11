@@ -98,9 +98,11 @@ namespace HTB.DevFx.Utils
 			var assemblies = LoadAssembliesFromBin();
 			var list = new List<Assembly>();
 			foreach (var assembly in assemblies) {
-				if (assembly.IsDefined(attributeType, false)) {
-					list.Add(assembly);
-				}
+				try {
+					if (assembly.IsDefined(attributeType, false)) {
+						list.Add(assembly);
+					}
+				} catch {}
 			}
 			return list.ToArray();
 		}

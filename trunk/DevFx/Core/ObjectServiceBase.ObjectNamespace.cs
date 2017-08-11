@@ -7,7 +7,7 @@ namespace HTB.DevFx.Core
 {
 	partial class ObjectServiceBase
 	{
-		internal class ObjectNamespace
+		internal class ObjectNamespace : IObjectNamespace
 		{
 			public ObjectNamespace(string name) {
 				this.Name = name;
@@ -18,9 +18,9 @@ namespace HTB.DevFx.Core
 			}
 
 			public string Name { get; private set; }
-			public Dictionary<string, string> TypeAliases { get; private set; }
-			public Dictionary<string, object> ConstAliases { get; private set; }
-			public Dictionary<string, ILifetimeContainer> ObjectAliases { get; private set; }
+			public IDictionary<string, string> TypeAliases { get; private set; }
+			public IDictionary<string, object> ConstAliases { get; private set; }
+			public IDictionary<string, ILifetimeContainer> ObjectAliases { get; private set; }
 			public TypedObjectsCollection TypedObjects { get; private set; }
 		}
 
@@ -52,6 +52,15 @@ namespace HTB.DevFx.Core
 				}
 				return this;
 			}
+		}
+
+		public virtual IObjectNamespace GetObjectNamespace(string spaceName) {
+			if (spaceName == null) {
+				spaceName = GlobalObjectNamespaceName;
+			}
+			ObjectNamespace ons;
+			this.objectNamespaces.TryGetValue(spaceName, out ons);
+			return ons;
 		}
 	}
 }
