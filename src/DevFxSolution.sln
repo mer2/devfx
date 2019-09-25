@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFx", "DevFx\DevFx.csproj", "{6B0CFB35-2004-4294-9B26-6348AA2CBAC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B0CFB35-2004-4294-9B26-6348AA2CBAC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B0CFB35-2004-4294-9B26-6348AA2CBAC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B0CFB35-2004-4294-9B26-6348AA2CBAC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B0CFB35-2004-4294-9B26-6348AA2CBAC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D73CC3B-FB44-49BD-986B-82CBC7783B42}
+	EndGlobalSection
+EndGlobal

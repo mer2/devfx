@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyVersion>3.5.0.0</AssemblyVersion>
+    <Authors>R2</Authors>
+    <Company>DevFx</Company>
+    <Description>Development framework for .NET Standard, include IoC, DataAccess, Microservices, etc.</Description>
+    <Copyright>LGPL</Copyright>
+    <Version>5.0.2</Version>
+    <FileVersion>5.0.2</FileVersion>
+    <PackageProjectUrl>https://github.com/mer2/devfx</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mer2/devfx</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Core\Settings\Objects.config" />
+    <None Remove="Data\Settings\Settings.config" />
+    <None Remove="Esb\Serialize\Settings\Settings.config" />
+    <None Remove="Logging\Settings\Settings.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Core\Settings\Objects.config" />
+    <EmbeddedResource Include="Data\Settings\Settings.config" />
+    <EmbeddedResource Include="Esb\Serialize\Settings\Settings.config" />
+    <EmbeddedResource Include="Logging\Settings\Settings.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="2.2.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.6.1" />
+    <PackageReference Include="System.Reflection.DispatchProxy" Version="4.5.1" />
+  </ItemGroup>
+
+</Project>
