@@ -1,1 +1,0 @@
-sc create ServiceRunner binPath= "ServiceRunner.exe -runAs:WinService -serviceName:ServiceRunner" DisplayName= ServiceRunner

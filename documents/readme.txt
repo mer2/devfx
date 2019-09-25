@@ -1,2 +1,0 @@
-DevelopFramework
-http://devfx.net/
